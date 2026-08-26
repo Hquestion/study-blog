@@ -1,0 +1,20 @@
+{
+  "name": "vitepress-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "posts:dev": "vitepress dev",
+    "posts:build": "vitepress build",
+    "posts:preview": "vitepress preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "vitepress": "2.0.0-alpha.19"
+  },
+  "packageManager": "pnpm@11.22.0"
+}
