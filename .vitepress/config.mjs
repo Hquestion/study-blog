@@ -4,6 +4,10 @@ import path from 'node:path'
 
 const docsDir = path.resolve(__dirname, '../posts')
 
+const sidebarOrder = {
+  'AI Agent': ['知识库搭建.md', '提示词.md']
+}
+
 function getTitle(filePath) {
   const content = fs.readFileSync(filePath, 'utf-8')
 
@@ -29,7 +33,15 @@ function generateSidebar() {
       .filter(item => item.isFile())
       .filter(item => item.name.endsWith('.md'))
       .filter(item => item.name !== 'index.md')
-      .sort()
+      .sort((a, b) => {
+        const order = sidebarOrder[category.name] ?? []
+        const aIndex = order.indexOf(a.name)
+        const bIndex = order.indexOf(b.name)
+        const aRank = aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex
+        const bRank = bIndex === -1 ? Number.MAX_SAFE_INTEGER : bIndex
+
+        return aRank - bRank || a.name.localeCompare(b.name)
+      })
       .map(item => {
         const filePath = path.join(categoryDir, item.name)
         const slug = item.name.replace(/\.md$/, '')
