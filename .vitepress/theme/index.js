@@ -6,6 +6,8 @@ import './style.css'
 let zoom
 
 function refreshImageZoom() {
+  if (typeof window === 'undefined') return
+
   nextTick(() => {
     zoom?.detach()
     zoom = mediumZoom('.vp-doc img', {
@@ -28,6 +30,6 @@ export default {
   extends: DefaultTheme,
   Layout,
   enhanceApp({ router }) {
-    router.onAfterRouteChanged = refreshImageZoom
+    router.onAfterRouteChange = refreshImageZoom
   }
 }
