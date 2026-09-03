@@ -38,5 +38,6 @@ features:
     icon:
       src: /vue.svg
     details: 操作系统学习
+    link: /操作系统/
 ---
 
