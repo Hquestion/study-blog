@@ -25,6 +25,11 @@ features:
       src: /vue.svg
     details: 前端知识持续积累
     link: /前端/
+  - title: Codex使用
+    icon:
+      src: /vue.svg
+    details: Codex基础知识及使用方法学习
+    link: /Codex/
   - title: Node.js
     icon:
       src: /vue.svg
